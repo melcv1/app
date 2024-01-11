@@ -1,0 +1,40 @@
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem; /* Ajusta según el diseño */
+}
+/* Estilos de enlace */
+.navigation a {
+  text-decoration: none;
+  color: #333; /* o el color de texto que prefieras */
+
+  padding: 10px 0; /* Ajusta el padding según sea necesario */
+  border-bottom: 3px solid transparent; /* Fondo transparente para la línea inferior */
+  transition: border-color 0.3s; /* Transición para el efecto de hover y active */
+}
+
+/* Estilo para el enlace activo o en hover */
+.navigation a.active, .navigation a:hover {
+  border-bottom: 3px solid #092161!important; /* Cambia #007bff al color de tu elección para la línea inferior */
+  cursor: pointer;
+}
+
+/* Estilo opcional para mejorar la visualización del efecto hover */
+.navigation a:not(.active):hover {
+  border-bottom: 3px solid rgba(0, 123, 255, 0.5)!important; /* Efecto más suave para hover */
+  cursor: pointer;
+}
+.active-link {
+  font-weight: bold;
+  border-bottom: 2px solid #092161!important;
+}

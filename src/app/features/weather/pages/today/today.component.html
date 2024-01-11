@@ -1,0 +1,35 @@
+
+<section class="today">
+  <div *ngIf="isLoading" class="loader-container">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+<div *ngIf="weatherData; else loading">
+  <h2>Weather for {{ weatherData.lat }}, {{ weatherData.lon }}</h2>
+  <div class="weather-summary">
+    <h3>{{ weatherData.weather.temp.cur }}°C</h3>
+    <p>Feels like: {{ weatherData.weather.feelsLike.cur }}°C</p>
+    <p>Pressure: {{ weatherData.weather.pressure }} hPa</p>
+    <p>Humidity: {{ weatherData.weather.humidity }}%</p>
+    <p>Cloudiness: {{ weatherData.weather.clouds }}%</p>
+    <p>Visibility: {{ weatherData.weather.visibility }} meters</p>
+    <p>Wind: {{ weatherData.weather.wind.speed }} m/s at {{ weatherData.weather.wind.deg }} degrees</p>
+    <p>Rain: {{ weatherData.weather.rain }} mm</p>
+    <p>Snow: {{ weatherData.weather.snow }} mm</p>
+    <p>
+      Weather Condition: {{ weatherData.weather.main }} - {{ weatherData.weather.description }}
+      <img [src]="weatherData.weather.icon.url" alt="Weather icon">
+    </p>
+  </div>
+
+  <div class="astronomical">
+    <p>Sunrise: {{ weatherData.astronomical.sunrise | date: 'shortTime' }}</p>
+    <p>Sunset: {{ weatherData.astronomical.sunset | date: 'shortTime' }}</p>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading weather data...</p>
+</ng-template>
+</section>

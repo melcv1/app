@@ -1,0 +1,78 @@
+
+.sidebar-custom {
+  background: rgb(0,136,203);
+  background: linear-gradient(180deg, rgba(0,136,203,1) 35%, rgba(17,82,179,1) 100%);
+}
+
+.search-container {
+  position: relative;
+  border-radius: 30px;
+  padding: 0.5rem;
+}
+
+.search-input {
+  border: 0;
+  box-shadow: none;
+  border-radius: 30px;
+
+}
+
+.search-button {
+  position: absolute;
+  right: 0;
+  border: 0;
+  background-color: transparent;
+  color: #092161;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 0.5rem 1rem;
+}
+
+
+.search-button .fa-search {
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+/* Weather Summary Styles */
+.weather-summary, .air-quality-summary {
+  padding: 0.7rem; /* Padding para la sección de resumen del clima */
+  border-radius: 15px; /* Bordes redondeados */
+  text-align: center; /* Alineación del texto al centro */
+  color: white;
+}
+
+.temperature {
+  font-size: 3rem; /* Tamaño de la temperatura */
+  font-weight: 700; /* Fuente en negrita */
+}
+.degree-symbol{
+  font-size: 0.6em; /* Ajusta esto según tus necesidades */
+  vertical-align: super; /* Esto eleva ligeramente el símbolo para que parezca un superíndice */
+
+}
+
+.time, .weather-condition, .rain-chance {
+  color: white; /* Color para el texto */
+}
+
+.location-image img {
+  max-height: 200px; /* Altura máxima para la imagen de la ubicación */
+  border-radius: 0.5rem; /* Bordes redondeados para la imagen */
+}
+
+
+.divider {
+  height: 1px; /* Ajusta el grosor del divisor */
+  background-color: #dbdbdb97; /* Color del divisor */
+  margin: 10px 0; /* Espacio antes y después del divisor */
+}
+.sp-icon{
+font-size: 10px;
+}
+.icon-temp{
+  font-size: 11px;
+}

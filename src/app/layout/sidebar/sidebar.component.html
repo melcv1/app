@@ -1,0 +1,91 @@
+<aside class="p-3 h-100 shadow-sm sidebar-custom">
+  <!-- Search input -->
+
+  <div class="search-container d-flex align-items-center mb-4">
+    <input
+      type="text"
+      class="form-control search-input"
+      [(ngModel)]="currentPlace"
+      placeholder="Search for places..."
+      aria-label="Search"
+    />
+    <button class="btn search-button" (click)="onSearch()">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+
+  <!-- Weather Summary -->
+  <div class="weather-summary" *ngIf="weatherData">
+    <div class="weather-icon">
+      <img [src]="weatherData.weather.icon.url" alt="Weather icon" />
+    </div>
+    <h2>{{ weatherData.name }}, {{ weatherData.country}}</h2>
+    <h2 class="temperature fw-bold mb-0">
+      {{ weatherData.weather.temp.cur | number : "1.0-0"
+      }}<span class="degree-symbol"> °C</span>
+    </h2>
+    <p class="weather-condition mb-2">{{ weatherData.weather.main}}</p>
+
+    <p class="time mb-2">{{ weatherData.dt | date : "short" }}</p>
+
+    <div class="divider"></div>
+
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col">
+        <p class="icon-temp">
+          <span class="sp-icon"><i class="fas fa-thermometer-half"></i></span> Feels Like:
+          {{ weatherData.weather.feelsLike.cur }}
+        </p>
+        <p class="icon-temp">
+          <span class="sp-icon"><i class="fas fa-tachometer-alt"></i></span> Pressure:
+          {{ weatherData.weather.pressure }} hPa
+        </p>
+        <p class="icon-temp">
+          <span class="sp-icon"><i class="fas fa-tint"></i> </span>
+          Humidity:
+          {{ weatherData.weather.humidity }}%
+        </p>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col">
+        <p class="icon-temp">
+          <span class="sp-icon"><i class="fas fa-cloud"></i></span> Clouds: {{ weatherData.weather.clouds }}%
+        </p>
+        <p class="icon-temp">
+          <span class="sp-icon"><i class="fas fa-eye"></i> </span>Visibility:
+          {{ weatherData.weather.visibility }} m
+        </p>
+        <p class="icon-temp">
+          <span class="sp-icon"><i class="fas fa-wind"></i></span> Wind Speed:
+          {{ weatherData.weather.wind.speed }} m/s
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="air-quality-summary" *ngIf="airQualityData">
+    <p class="p-0"></p>
+    <p ><i class="fas fa-wind"></i> Air Quality</p>
+
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col">
+        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-smog"></i></span> CO: {{ airQualityData.components.co }} µg/m³</p>
+        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-exclamation-triangle"></i></span> NO: {{ airQualityData.components.no }} µg/m³</p>
+        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-exclamation-circle"></i> </span>NO2: {{ airQualityData.components.no2 }} µg/m³</p>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col">
+        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-sun"></i> </span>O3: {{ airQualityData.components.o3 }} µg/m³</p>
+        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-cloud-rain"></i> </span>SO2: {{ airQualityData.components.so2 }} µg/m³</p>
+        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-dust"></i></span> PM2.5: {{ airQualityData.components.pm2_5 }} µg/m³</p>
+      </div>
+    </div>
+  </div>
+
+</aside>

@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins/Poppins-Light.ttf');
+}
+:root {
+  --background-color: #f6f6f8; /* Color de fondo */
+  --font-family: 'Poppins', sans-serif;
+  --text-color: #333; /* Color de texto principal */
+}
+
+body {
+  background-color: var(--background-color); /* Utiliza la variable de color de fondo */
+  font-family: var(--font-family); /* Utiliza la variable de familia de fuente */
+   color: var(--text-color); /* Utiliza la variable de color de texto principal */
+}
+html, body {
+  height: 100%;
+}
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8); /* fondo semitransparente */
+  z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+}
+
+/* Estilo para el spinner */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border: 5px solid transparent;
+  border-top-color: #fff93e; /* Color inicial del degradado */
+  border-right-color: #6ed7f4; /* Color final del degradado */
+  border-radius: 50%;
+}
+  /* Animación de rotación */
+
