@@ -1,22 +1,39 @@
 <!-- login.component.html -->
-<form (ngSubmit)="onSubmit()">
-  <div>
-    <label for="username">Username:</label>
-    <input
-      type="text"
-      id="username"
-      [(ngModel)]="credentials.username"
-      name="username"
-    />
+<div class="container">
+  <div class="form-container">
+
+      <form (ngSubmit)="onSubmit()" class="mt-5">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username:</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fas fa-user"></i>
+            </span>
+            <input
+              type="text"
+              id="username"
+              [(ngModel)]="credentials.username"
+              name="username"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password:</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fas fa-lock"></i>
+            </span>
+            <input
+              type="password"
+              id="password"
+              [(ngModel)]="credentials.password"
+              name="password"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
   </div>
-  <div>
-    <label for="password">Password:</label>
-    <input
-      type="password"
-      id="password"
-      [(ngModel)]="credentials.password"
-      name="password"
-    />
-  </div>
-  <button type="submit">Login</button>
-</form>
