@@ -16,7 +16,7 @@ $ npm run docker:run
 ```
 This will create a Docker instance for your application.
 
-To Login
+## To Login
 User: melissa
 Password: melissa
 
