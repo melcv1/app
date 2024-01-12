@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,13 @@ import { FormsModule } from '@angular/forms';
 export class LoginComponent {
   credentials = { username: '', password: '' };
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
+    this.authService.logout();
+  }
 
   onSubmit() {
     this.authService
@@ -20,10 +28,11 @@ export class LoginComponent {
       .subscribe({
         next: (data) => {
           console.log('Login successful', data);
-          // Manejar la respuesta, como almacenar el token, etc.
+          this.router.navigate(['/today']);
         },
         error: (error) => {
           console.error('Login failed', error);
+          this.toastr.error('credenciales incorrectas');
         },
       });
   }
