@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable,catchError, of, throwError, OperatorFunction } from 'rxjs';
 import { WeatherResponse } from '../models/weather.model';
 import { ForecastApiResponse } from '../models/forecast.model';
+import { environment } from '../../environment/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
 
 
-  private apiUrl: string = 'http://localhost:3000/weather';
+  private apiUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
