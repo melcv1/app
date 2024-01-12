@@ -14,7 +14,7 @@ export class ForecastComponent {
   @Input() displayFormat: string = 'shortDate';
   @Input() title?: string;
 
-  @Output() daySelected = new EventEmitter<string>(); // Añadir EventEmitter
+  @Output() daySelected = new EventEmitter<string>();
 
   onDaySelected(forecastDate: string) {
     this.daySelected.emit(forecastDate);

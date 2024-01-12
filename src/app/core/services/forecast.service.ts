@@ -15,5 +15,4 @@ export class ForecastService {
     console.log(date);
   }
 
-  // Agrega aquí otros métodos relacionados con el pronóstico si es necesario
 }

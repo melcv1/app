@@ -26,7 +26,7 @@ export class DayComponent implements OnInit {
     private weatherService: WeatherService,
      private forecastService:ForecastService
      ,private searchService: SearchService) {
-    // Inicializar selectedDate con la fecha actual
+
    }
 
 
@@ -35,7 +35,7 @@ export class DayComponent implements OnInit {
     this.searchService.currentPlace.pipe(
       switchMap(place => {
         if (place) {
-          this.city = place; // Asegúrate de actualizar la ciudad aquí
+          this.city = place;
           return this.forecastService.selectedDate;
         }
         return EMPTY;
@@ -62,7 +62,7 @@ export class DayComponent implements OnInit {
   private loadDayDetails(selectedDate: string, city: string) {
     this.dayDetails = null;
     this.currentPageData = [];
-    // Llamada al servicio getForecastDateDay
+
     this.weatherService.getForecastDateDay(city, selectedDate).subscribe({
       next: (data) => {
         this.dayDetails = data;

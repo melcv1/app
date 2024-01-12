@@ -20,10 +20,9 @@ export class AirService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      // TODO: better job of transforming error for user consumption
+
       console.error(`${operation} failed: ${error.message}`);
 
-      // Instead of returning a safe result, let's throw an error to be handled by the subscriber
       return throwError(() => new Error(`${operation} failed: ${error.message}`));
     };
   }

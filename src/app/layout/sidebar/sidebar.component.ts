@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent implements OnInit {
-  currentPlace: string = 'Quito'; // Valor predeterminado
+  currentPlace: string = 'Quito';
   weatherData: WeatherResponse | null = null;
   airQualityData : AirQualityResponse | null = null;
 

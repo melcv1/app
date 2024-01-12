@@ -4,15 +4,15 @@
   src: url('./assets/fonts/Poppins/Poppins-Light.ttf');
 }
 :root {
-  --background-color: #f9f9f9; /* Color de fondo */
+  --background-color: #f9f9f9;
   --font-family: 'Poppins', sans-serif;
-  --text-color: #333; /* Color de texto principal */
+  --text-color: #333;
 }
 
 body {
-  background-color: var(--background-color); /* Utiliza la variable de color de fondo */
-  font-family: var(--font-family); /* Utiliza la variable de familia de fuente */
-   color: var(--text-color); /* Utiliza la variable de color de texto principal */
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+   color: var(--text-color);
 }
 html, body {
   height: 100%;
@@ -26,18 +26,17 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.8); /* fondo semitransparente */
-  z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
 }
 
-/* Estilo para el spinner */
 .spinner-border {
   width: 3rem;
   height: 3rem;
   border: 5px solid transparent;
-  border-top-color: #fff93e; /* Color inicial del degradado */
-  border-right-color: #6ed7f4; /* Color final del degradado */
+  border-top-color: #fff93e;
+  border-right-color: #6ed7f4;
   border-radius: 50%;
 }
-  /* Animación de rotación */
+
 
