@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { SearchService } from '../../core/services/search.service';
 import { WeatherService } from '../../core/services/weather.service';
 import { WeatherResponse } from '../../core/models/weather.model';
-import { AirService } from '../../core/services/air.service';
 import { AirQualityResponse } from './../../core/models/air.model';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -19,10 +19,9 @@ export class SidebarComponent implements OnInit {
   weatherData: WeatherResponse | null = null;
   airQualityData : AirQualityResponse | null = null;
 
-  constructor(
+  constructor(private toastr:ToastrService,
     private searchService: SearchService,
     private weatherService: WeatherService,
-    private airservice: AirService,
   ) {}
 
   ngOnInit() {
@@ -35,13 +34,19 @@ export class SidebarComponent implements OnInit {
   }
 
   private loadWeatherData() {
+
     this.weatherService.getWeatherForPlace(this.currentPlace).subscribe({
-      next: (data) => this.weatherData = data,
-      error: (error) => console.error('Error fetching weather:', error)
+      next: (data) =>{
+        this.weatherData = data,
+        this.toastr.success("Información cargada correctamente.");
+      },
+      error: (error) => {
+        this.toastr.error("Información no encontrada");
+        console.error('Error fetching weather:', error)
+
+
+        }
     });
-    this.airservice.getAirForPlace(this.currentPlace).subscribe({
-      next: (data) => this.airQualityData = data,
-      error: (error) => console.error('Error fetching weather:', error)
-    });
+
   }
 }

@@ -17,6 +17,7 @@ export class AirService {
     console.log(url)
     return this.http.get<AirQualityResponse>(url);
   }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: better job of transforming error for user consumption

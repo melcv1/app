@@ -63,29 +63,31 @@
         </p>
       </div>
     </div>
-  </div>
 
-  <div class="divider"></div>
-
-  <div class="air-quality-summary" *ngIf="airQualityData">
-    <p class="p-0"></p>
-    <p ><i class="fas fa-wind"></i> Air Quality</p>
-
-    <div class="row">
-      <!-- Left Column -->
-      <div class="col">
-        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-smog"></i></span> CO: {{ airQualityData.components.co }} µg/m³</p>
-        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-exclamation-triangle"></i></span> NO: {{ airQualityData.components.no }} µg/m³</p>
-        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-exclamation-circle"></i> </span>NO2: {{ airQualityData.components.no2 }} µg/m³</p>
-      </div>
-
-      <!-- Right Column -->
-      <div class="col">
-        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-sun"></i> </span>O3: {{ airQualityData.components.o3 }} µg/m³</p>
-        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-cloud-rain"></i> </span>SO2: {{ airQualityData.components.so2 }} µg/m³</p>
-        <p  class="icon-temp"><span class="sp-icon"><i class="fas fa-dust"></i></span> PM2.5: {{ airQualityData.components.pm2_5 }} µg/m³</p>
-      </div>
+<!-- Sunrise & Sunset Section -->
+<div class="sunrise-sunset-summary" *ngIf="weatherData.astronomical">
+  <div class="title">Sunrise & Sunset</div>
+  <div class="times-container">
+    <div class="time-block sunrise">
+      <i class="fa-regular fa-sun sun-icon "></i>
+      <div class="time-sunset">{{ weatherData.astronomical.sunrise | date: 'shortTime' }}</div>
+      <div class="change">-1m 46s</div>
+    </div>
+    <div class="time-block sunset">
+      <i class="fa-regular fa-moon sun-icon "></i>
+      <div class="time-sunset">{{ weatherData.astronomical.sunset | date: 'shortTime' }}</div>
+      <div class="change">+2m 22s</div>
     </div>
   </div>
+</div>
+
+
+
+
+  </div>
+
+
+
+
 
 </aside>

@@ -1,0 +1,20 @@
+<div class="container my-4">
+  <div class="row justify-content-center mb-3">
+    <div class="col text-center">
+      <h5 class="hourly-forecast-title">{{ title }}</h5>
+    </div>
+  </div>
+  <div class="row justify-content-center d-flex align-items-stretch">
+    <div class="col-6 col-md-2 mb-3" *ngFor="let forecast of forecasts" (click)="onDaySelected(forecast.dt)">
+      <div class="card text-center shadow-sm mb-4 h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ forecast.dt | date: displayFormat : 'UTC' }}</h5>
+          <img [src]="forecast.weather.icon.url" class="weather-icon" alt="Weather icon">
+          <div class="temperature">
+            <span class="high">{{ forecast.weather.temp.cur | number:'1.0-0' }}°</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
