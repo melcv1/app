@@ -37,38 +37,37 @@
   outline: none;
 }
 
-/* Weather Summary Styles */
 .weather-summary, .air-quality-summary {
-  padding: 0.7rem; /* Padding para la sección de resumen del clima */
-  border-radius: 15px; /* Bordes redondeados */
-  text-align: center; /* Alineación del texto al centro */
+  padding: 0.7rem;
+  border-radius: 15px;
+  text-align: center;
   color: white;
 }
 
 .temperature {
-  font-size: 3rem; /* Tamaño de la temperatura */
-  font-weight: 700; /* Fuente en negrita */
+  font-size: 3rem;
+  font-weight: 700;
 }
 .degree-symbol{
-  font-size: 0.6em; /* Ajusta esto según tus necesidades */
-  vertical-align: super; /* Esto eleva ligeramente el símbolo para que parezca un superíndice */
+  font-size: 0.6em;
+  vertical-align: super;
 
 }
 
 .time, .weather-condition, .rain-chance {
-  color: white; /* Color para el texto */
+  color: white;
 }
 
 .location-image img {
-  max-height: 200px; /* Altura máxima para la imagen de la ubicación */
-  border-radius: 0.5rem; /* Bordes redondeados para la imagen */
+  max-height: 200px;
+  border-radius: 0.5rem;
 }
 
 
 .divider {
-  height: 1px; /* Ajusta el grosor del divisor */
-  background-color: #dbdbdb97; /* Color del divisor */
-  margin: 10px 0; /* Espacio antes y después del divisor */
+  height: 1px;
+  background-color: #dbdbdb97;
+  margin: 10px 0;
 }
 .sp-icon{
 font-size: 10px;
@@ -111,7 +110,7 @@ font-size: 10px;
 .sun-icon {
   color: #f0ad4e;
   margin-bottom: 0.25rem;
-  font-size: 2rem; /* Ajuste el tamaño según sea necesario */
+  font-size: 2rem;
 }
 
 .time-sunset {
@@ -125,7 +124,6 @@ font-size: 10px;
   color: #666;
 }
 
-/* Ajustes específicos para el icono de sunrise y sunset */
 .sunrise .sun-icon {
   color: #FFA500;
 }

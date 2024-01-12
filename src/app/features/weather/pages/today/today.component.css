@@ -1,6 +1,5 @@
 
 
-/* Custom colors for icons based on the mockup */
 .card-title {
   color: #555;
 }
@@ -15,21 +14,20 @@
   font-size:12px;
 }
 
-/* Specific styles for the Air Quality card */
 .air-quality-fair {
-  color: #ff8c00; /* Or any other color based on the aqiName */
+  color: #ff8c00;
 }
 
 
 .highlight-card .card-body {
   display: flex;
   align-items: center;
-  justify-content: start; /* Asegura que los elementos comiencen desde el borde izquierdo */
+  justify-content: start;
 }
 
 .highlight-icon {
-  font-size: 2em; /* Ajusta el tamaño del icono según prefieras */
-  margin-right: 20px; /* Aumenta el margen derecho para más espacio */
+  font-size: 2em;
+  margin-right: 20px;
 }
 
 .card-info {
@@ -38,14 +36,13 @@
   justify-content: center;
 }
 
-/* Ajustes para el título y el contenido para que se alineen correctamente */
 .highlight-card .card-title {
   margin-bottom: 0.5rem;
 
 }
 
 .highlight-card .display-4 {
-  font-size: 1.6rem; /* Ajusta según necesites */
+  font-size: 1.6rem;
   margin-bottom: 0.5rem;
 }
 

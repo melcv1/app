@@ -11,27 +11,23 @@
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 2rem; /* Ajusta según el diseño */
+  gap: 2rem;
 }
-/* Estilos de enlace */
 .navigation a {
   text-decoration: none;
-  color: #333; /* o el color de texto que prefieras */
-
-  padding: 10px 0; /* Ajusta el padding según sea necesario */
-  border-bottom: 3px solid transparent; /* Fondo transparente para la línea inferior */
-  transition: border-color 0.3s; /* Transición para el efecto de hover y active */
+  color: #333;
+  padding: 10px 0;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s;
 }
 
-/* Estilo para el enlace activo o en hover */
 .navigation a.active, .navigation a:hover {
-  border-bottom: 3px solid #092161!important; /* Cambia #007bff al color de tu elección para la línea inferior */
+  border-bottom: 3px solid #092161!important;
   cursor: pointer;
 }
 
-/* Estilo opcional para mejorar la visualización del efecto hover */
 .navigation a:not(.active):hover {
-  border-bottom: 3px solid #092161!important; /* Efecto más suave para hover */
+  border-bottom: 3px solid #092161!important;
   cursor: pointer;
 }
 .active-link {

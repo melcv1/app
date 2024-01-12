@@ -15,40 +15,40 @@ export class WeatherService {
 
   getWeatherForPlace(place: string): Observable<WeatherResponse> {
 
-    const url = `${this.apiUrl}/current/?city=${place}`;  // Removed '/current' since it's already in apiUrl.
+    const url = `${this.apiUrl}/current/?city=${place}`;
     console.log(url)
     return this.http.get<WeatherResponse>(url);
   }
   getForecastDate(place: string): Observable<ForecastApiResponse> {
     const currentDate = new Date();
-    const formattedDate = currentDate.toISOString().split('T')[0]; // Formatea la fecha a 'aaaa-mm-dd'
+    const formattedDate = currentDate.toISOString().split('T')[0];
 
     const url = `${this.apiUrl}/forecast/date/?city=${place}&date=${formattedDate}`;
     console.log(url);
-    return this.http.get<ForecastApiResponse>(url); // Ajusta el tipo de retorno a ForecastApiResponse
+    return this.http.get<ForecastApiResponse>(url);
   }
   getNextForecast(place: string): Observable<ForecastApiResponse> {
     const currentDate = new Date();
-    const formattedDate = currentDate.toISOString().split('T')[0]; // Formatea la fecha a 'aaaa-mm-dd'
+    const formattedDate = currentDate.toISOString().split('T')[0];
 
     const url = `${this.apiUrl}/forecast/nextDays/?city=${place}&date=${formattedDate}`;
     console.log(url);
-    return this.http.get<ForecastApiResponse>(url); // Ajusta el tipo de retorno a ForecastApiResponse
+    return this.http.get<ForecastApiResponse>(url);
   }
 
   getForecastDateDay(place: string, day: string): Observable<ForecastApiResponse> {
 
     const url = `${this.apiUrl}/forecast/date/day/?city=${place}&date=${day}`;
     console.log(url);
-    return this.http.get<ForecastApiResponse>(url); // Ajusta el tipo de retorno a ForecastApiResponse
+    return this.http.get<ForecastApiResponse>(url);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      // TODO: better job of transforming error for user consumption
+
       console.error(`${operation} failed: ${error.message}`);
 
-      // Instead of returning a safe result, let's throw an error to be handled by the subscriber
+
       return throwError(() => new Error(`${operation} failed: ${error.message}`));
     };
   }

@@ -6,5 +6,5 @@ export const routes: Routes = [
   { path: '', redirectTo: '/today', pathMatch: 'full' },
   { path: 'today',  component: TodayComponent },
   { path: 'week',  component: WeekComponent },
-  // ... otras rutas
+
 ];

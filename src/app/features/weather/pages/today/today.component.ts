@@ -18,10 +18,9 @@ AirService
     imports: [CommonModule, ForecastComponent]
 })
 export class TodayComponent implements OnInit {
-  place: string = ''; // Agregamos la propiedad place aquí
+  place: string = '';
 
-  forecastData: ForecastApiResponse | null = null;  // Initialize to null for better checking.
-
+  forecastData: ForecastApiResponse | null = null;
   airQualityData: AirQualityResponse | null = null;
   constructor(
     private searchService: SearchService,
@@ -35,7 +34,7 @@ export class TodayComponent implements OnInit {
           if (place) {
         this.place = place;
 
-        // Combina ambas solicitudes en una sola suscripción
+
         return forkJoin({
           forecastData: this.weatherService.getForecastDate(place),
           airQuality: this.airService.getAirForPlace(place)
@@ -48,7 +47,6 @@ export class TodayComponent implements OnInit {
     next: ({ forecastData, airQuality }) => {
       this.forecastData = forecastData;
       this.airQualityData = airQuality;
-      // Notificación de éxito
 
     },
     error: error => {

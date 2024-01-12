@@ -1,13 +1,8 @@
-.weather-details {
-  /* Aplicar estilos personalizados aquí para que coincidan con tu diseño */
+.weather-icon{
+  width:50px;
 }
 
 .table-responsive {
-  max-height: 400px; /* O el tamaño deseado para el scrolling */
+  max-height: 400px;
   overflow-y: scroll;
-}
-
-/* Estilos adicionales de Bootstrap y personalizados para paginación */
-.pagination {
-  /* Estilos para que coincida con tu diseño */
 }
