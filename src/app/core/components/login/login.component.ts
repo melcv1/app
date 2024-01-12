@@ -32,7 +32,7 @@ export class LoginComponent {
         },
         error: (error) => {
           console.error('Login failed', error);
-          this.toastr.error('credenciales incorrectas');
+          this.toastr.error('Incorrect Username or Password');
         },
       });
   }

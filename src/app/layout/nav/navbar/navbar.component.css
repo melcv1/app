@@ -39,7 +39,7 @@
 
 /* Estilo para el botón de usuario */
 .user-icon {
-  background-color: blue; /* Fondo azul */
+  background-color: rgb(0, 136, 203);
   color: white; /* Texto blanco */
   border: none;
   border-radius: 50%; /* Hace el botón redondo */
