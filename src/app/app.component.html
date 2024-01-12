@@ -1,12 +1,13 @@
-
 <div class="container-fluid vh-100 p-0 overflow-y overflow-x-hidden">
+  <!-- Mostrar sidebar y navbar solo si el usuario está autenticado -->
   <div class="row h-100 no-gutters">
     <div class="col-md-3 col-12">
-      <app-sidebar></app-sidebar>
+      <app-sidebar *ngIf="isAuthenticated()"></app-sidebar>
     </div>
     <div class="col-md-9 col-12">
-      <app-navbar></app-navbar>
+      <app-navbar *ngIf="isAuthenticated()"></app-navbar>
       <router-outlet></router-outlet>
+      <!-- Router Outlet para renderizar los componentes de las rutas -->
     </div>
   </div>
 </div>
