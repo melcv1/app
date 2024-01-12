@@ -1,0 +1,13 @@
+.weather-details {
+  /* Aplicar estilos personalizados aquí para que coincidan con tu diseño */
+}
+
+.table-responsive {
+  max-height: 400px; /* O el tamaño deseado para el scrolling */
+  overflow-y: scroll;
+}
+
+/* Estilos adicionales de Bootstrap y personalizados para paginación */
+.pagination {
+  /* Estilos para que coincida con tu diseño */
+}

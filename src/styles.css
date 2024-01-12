@@ -4,7 +4,7 @@
   src: url('./assets/fonts/Poppins/Poppins-Light.ttf');
 }
 :root {
-  --background-color: #f6f6f8; /* Color de fondo */
+  --background-color: #f9f9f9; /* Color de fondo */
   --font-family: 'Poppins', sans-serif;
   --text-color: #333; /* Color de texto principal */
 }

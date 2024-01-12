@@ -1,44 +1,60 @@
-import { WeatherResponse } from './../../../../core/models/weather.model';
+import { ForecastApiResponse } from './../../../../core/models/forecast.model';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SearchService } from '../../../../core/services/search.service';
 import { WeatherService } from '../../../../core/services/weather.service';
-import { ToastrService } from 'ngx-toastr';
-import { LoaderService } from '../../../../core/services/loader.service';
 
+import { LoaderService } from '../../../../core/services/loader.service';
+import { AirService } from '../../../../core/services/air.service';
+import { AirQualityResponse } from '../../../../core/models/air.model';
+import { EMPTY, catchError, forkJoin, switchMap } from 'rxjs';
+import { ForecastComponent } from "../../../../core/components/forecast/forecast.component";
+AirService
 @Component({
-  selector: 'app-today',
-  standalone: true,
-  imports:[CommonModule],
-  templateUrl: './today.component.html',
-  styleUrl: './today.component.css'
+    selector: 'app-today',
+    standalone: true,
+    templateUrl: './today.component.html',
+    styleUrl: './today.component.css',
+    imports: [CommonModule, ForecastComponent]
 })
 export class TodayComponent implements OnInit {
   place: string = ''; // Agregamos la propiedad place aquí
-  isLoading: boolean = false;
-  weatherData: WeatherResponse | null = null;  // Initialize to null for better checking.
 
-  constructor(private toastr:ToastrService, private searchService: SearchService, private weatherService: WeatherService) {}
+  forecastData: ForecastApiResponse | null = null;  // Initialize to null for better checking.
 
-  ngOnInit() {
-    this.searchService.currentPlace.subscribe(place => {
-      if (place) {
-        this.place= place;
-        this.isLoading = true; // Muestra el loader
-        this.weatherService.getWeatherForPlace(place).subscribe({
-          next: (data) => {
-            this.weatherData = data;
-            this.isLoading = false; // Oculta el loader
-            // Aquí puedes mostrar la notificación de éxito
-            this.toastr.success("Información cargada correctamente.");
-          },
-          error: (error) => {
-            console.error('Error fetching weather:', error);
-            this.toastr.error("Información no encontrada");
-            this.isLoading = false; // Oculta el loader en caso de error
-          }
+  airQualityData: AirQualityResponse | null = null;
+  constructor(
+    private searchService: SearchService,
+    private weatherService: WeatherService,
+    private airService: AirService) {}
+
+
+    ngOnInit() {
+      this.searchService.currentPlace.pipe(
+        switchMap(place => {
+          if (place) {
+        this.place = place;
+
+        // Combina ambas solicitudes en una sola suscripción
+        return forkJoin({
+          forecastData: this.weatherService.getForecastDate(place),
+          airQuality: this.airService.getAirForPlace(place)
         });
-      }
-    });
-  }
+        }
+      return EMPTY;
+
+        })
+      ).subscribe({
+    next: ({ forecastData, airQuality }) => {
+      this.forecastData = forecastData;
+      this.airQualityData = airQuality;
+      // Notificación de éxito
+
+    },
+    error: error => {
+      console.error('Error fetching weather:', error);
+
+    }
+  });
+}
 }

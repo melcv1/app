@@ -31,10 +31,11 @@
 
 /* Estilo opcional para mejorar la visualización del efecto hover */
 .navigation a:not(.active):hover {
-  border-bottom: 3px solid rgba(0, 123, 255, 0.5)!important; /* Efecto más suave para hover */
+  border-bottom: 3px solid #092161!important; /* Efecto más suave para hover */
   cursor: pointer;
 }
 .active-link {
   font-weight: bold;
   border-bottom: 2px solid #092161!important;
 }
+

@@ -1,0 +1,8 @@
+<app-forecast
+  *ngIf="forecastData && forecastData.length > 0"
+  [forecasts]="forecastData"
+  [displayFormat]="'shortDate'"
+  [title]="'DAILY FORECAST'"
+  (daySelected)="selectDay($event)">
+</app-forecast>
+<app-day></app-day>

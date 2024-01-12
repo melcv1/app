@@ -1,35 +1,120 @@
+<app-forecast
+  *ngIf="forecastData && forecastData.length > 0"
+  [forecasts]="forecastData"
+  [displayFormat]="'shortTime'"
+  [title]="'HOURLY FORECAST'">
+</app-forecast>
 
-<section class="today">
-  <div *ngIf="isLoading" class="loader-container">
-    <div class="spinner-border text-primary" role="status">
-      <span class="visually-hidden">Cargando...</span>
+<div class="container my-4">
+  <div class="row justify-content-center mb-3">
+    <div class="col text-center">
+      <h5 class="hourly-forecast-title">AIR CONDITIONS</h5>
     </div>
   </div>
-<div *ngIf="weatherData; else loading">
-  <h2>Weather for {{ weatherData.lat }}, {{ weatherData.lon }}</h2>
-  <div class="weather-summary">
-    <h3>{{ weatherData.weather.temp.cur }}°C</h3>
-    <p>Feels like: {{ weatherData.weather.feelsLike.cur }}°C</p>
-    <p>Pressure: {{ weatherData.weather.pressure }} hPa</p>
-    <p>Humidity: {{ weatherData.weather.humidity }}%</p>
-    <p>Cloudiness: {{ weatherData.weather.clouds }}%</p>
-    <p>Visibility: {{ weatherData.weather.visibility }} meters</p>
-    <p>Wind: {{ weatherData.weather.wind.speed }} m/s at {{ weatherData.weather.wind.deg }} degrees</p>
-    <p>Rain: {{ weatherData.weather.rain }} mm</p>
-    <p>Snow: {{ weatherData.weather.snow }} mm</p>
-    <p>
-      Weather Condition: {{ weatherData.weather.main }} - {{ weatherData.weather.description }}
-      <img [src]="weatherData.weather.icon.url" alt="Weather icon">
-    </p>
-  </div>
 
-  <div class="astronomical">
-    <p>Sunrise: {{ weatherData.astronomical.sunrise | date: 'shortTime' }}</p>
-    <p>Sunset: {{ weatherData.astronomical.sunset | date: 'shortTime' }}</p>
+  <!-- Envuelve todas las tarjetas en un único *ngIf -->
+  <div *ngIf="airQualityData">
+    <div class="row">
+      <!-- Air Quality Card -->
+
+
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card highlight-card h-100" >
+          <div class="card-body d-flex">
+            <div class="highlight-icon" style="color: #ff8c00;">
+              <i class="fas fa-smog"></i>
+            </div>
+            <div class="card-info">
+              <p class="card-title">Air Quality</p>
+              <h2 class="display-4">{{ airQualityData.aqi }}</h2>
+              <p class="card-text">{{ airQualityData.aqiName }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card highlight-card h-100">
+          <div class="card-body d-flex">
+            <div class="highlight-icon" style="color: #e74c3c;">
+              <i class="fa-solid fa-soap"></i>
+            </div>
+            <div class="card-info">
+              <p class="card-title">CO</p>
+              <h2 class="display-4">{{ airQualityData.components.co}}</h2>
+              <p class="card-text">Carbon Monoxide</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- NO Card -->
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card highlight-card h-100">
+          <div class="card-body d-flex">
+            <div class="highlight-icon" style="color: #f39c12 ;">
+              <i class="fa-brands fa-think-peaks"></i>
+            </div>
+            <div class="card-info">
+              <p class="card-title">NO</p>
+              <h2 class="display-4">{{ airQualityData.components.no}}</h2>
+              <p class="card-text">Nitric Oxide</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PM2.5 Card -->
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card highlight-card h-100">
+          <div class="card-body d-flex">
+            <div class="highlight-icon" style="color: #9b59b6;">
+              <i class="fa-solid fa-bahai"></i>
+            </div>
+            <div class="card-info">
+              <p class="card-title">PM2.5</p>
+              <h2 class="display-4">{{ airQualityData.components.no}}</h2>
+              <p class="card-text">Fine Particles</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- O3 Card -->
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card highlight-card h-100">
+          <div class="card-body d-flex">
+            <div class="highlight-icon" style="color: #ffce00;">
+              <i class="fa-brands fa-soundcloud"></i>
+            </div>
+            <div class="card-info">
+              <p class="card-title">O3</p>
+              <h2 class="display-4">{{ airQualityData.components.o3}}</h2>
+              <p class="card-text">Ozone</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NO2 Card -->
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card highlight-card h-100">
+          <div class="card-body d-flex">
+            <div class="highlight-icon" style="color: #59b681;">
+              <i class="fa-solid fa-wave-square"></i>
+            </div>
+            <div class="card-info">
+              <p class="card-title">NO2</p>
+              <h2 class="display-4">{{ airQualityData.components.no2}}</h2>
+              <p class="card-text">Nitrogen Dioxide</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Aquí puedes continuar con tarjetas adicionales si las tienes -->
+    </div>
   </div>
 </div>
-
-<ng-template #loading>
-  <p>Loading weather data...</p>
-</ng-template>
-</section>

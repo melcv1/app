@@ -1,0 +1,30 @@
+.card {
+  border: none;
+  border-radius: 10px; /* Tarjetas con esquinas redondeadas */
+  background-color: #ffffff; /* Un color de fondo suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 15px; /* Un poco de padding para el contenido interno */
+}
+
+.weather-icon {
+  width: 50px; /* Ajusta el tamaño del icono según sea necesario */
+  height: auto;
+}
+
+.temperature {
+  font-size: 1.2em; /* Tamaño de fuente para las temperaturas */
+}
+
+.high {
+  color: #f39c12; /* Un color para la temperatura alta */
+}
+
