@@ -16,6 +16,10 @@ $ npm run docker:run
 ```
 This will create a Docker instance for your application.
 
+To Login
+User: melissa
+Password: melissa
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
